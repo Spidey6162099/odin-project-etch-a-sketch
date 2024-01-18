@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-sketch</title>
+</head>
+<body>
+    <p>Etch a Sketch baby!!!</p>
+    <div class="container">
+
+    </div>
+    <div id="input">
+    <input type="text" id="user_input">
+    <button onclick="take_input()">submit</button>
+    </div>   
+    <!-- <p class="footer">bye</p> -->
+    <style>
+    body{
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    } 
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        border: solid black 3px;
+        
+     /* width: 25%;*/
+     
+     flex-grow: 1;
+     flex-shrink: 0;
+     /* margin: 50px 50px; */
+     width: 1006px;
+     height: 1006px;
+     
+        
+    }
+    /* .footer{
+        margin-bottom: 0px;
+        margin-top: 50px;
+    } */
+     /* .container>div{
+     display: flex;
+
+     flex-shrink: 0;
+    
+     justify-content: center;
+     align-items: center;
+   
+
+     background-color: lightgoldenrodyellow;
+     } */
+     p{
+        font-size: xx-large;
+        color: red;
+        background-color: antiquewhite;
+        margin-top: 0px;
+        text-align: center;
+     }
+    </style>
+    <script>
+        function make_grid(n){
+            let indiv_width=(1000/n);
+            
+              
+const container=document.querySelector(".container");
+for(let i=1;i<=n*n;i++){
+    
+const d=document.createElement('div');
+
+d.style.width=(indiv_width+"px");
+d.style.height=1000/d.style.width+"px";
+d.style.backgroundColor='lightgoldenrodyellow';
+container.appendChild(d);
+}
+const divs=document.querySelectorAll(".container>div");
+
+divs.forEach((individual_div)=>{
+  
+ 
+individual_div.addEventListener('mouseover',()=>{
+// individual_div.setAttribute('style','background-color:orange');
+individual_div.style.backgroundColor="orange";
+});
+individual_div.addEventListener('mousedown',()=>{
+// individual_div.setAttribute('style','background-color:orange');
+individual_div.style.backgroundColor="orange";
+});
+// individual_div.addEventListener('mouseout',()=>{
+// individual_div.setAttribute('style','background-color:lightgoldenrodyellow');
+// });
+});
+
+}
+
+make_grid(16);
+function take_input(){
+    const divs=document.querySelectorAll(".container>div");
+    const container=document.querySelector(".container");
+    divs.forEach((individual_div)=>{
+        container.removeChild(individual_div);
+    })
+    let user_input=document.querySelector("#user_input").value;
+    make_grid(user_input);
+    
+}
+    </script>
+    
+</body>
+</html>
